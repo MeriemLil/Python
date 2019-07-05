@@ -15,28 +15,48 @@ MORSE_CODE = { 'A':'.*', 'B':'*...',
                '?':'..**..', '/':'*..*.', '*':'*....*',
                '(':'*.**.', ')':'*.**.*'}
 
+# conventions:
+# - one space to separate two letters
+# - three spaces to separate two words
+# - the last word must terminate by a space, at least
 def MorseToEng():
-    file = input("Enter name of file: ")
+    file = 'myPWD.txt' #input("Enter name of file: ")
     f = open(file, 'r')
-    n  = f.read()
-    for x in n:
-        for y in MORSE_CODE:
-            if (x == MORSE_CODE[y]):
-                print(y)
+    m = f.read()
 
+    tmp = ""
+    c = 0  # to count how many spaces
+    for x in m:
+        if (x != " "):  # building a letter
+            tmp += x
+            c = 0
+        else:   # a letter terminates by one space
+            c += 1
+            if (c == 1):
+                for y in MORSE_CODE:
+                    if (tmp == MORSE_CODE[y]):
+                         print(y)
+                tmp = ""
+            elif (c == 3):
+                print(" ")
 
     f.close()
 
 
 def EngToMorse():
-    file = input("Enter name of file: ")
+    file = 'myPWD.txt' #input("Enter name of file: ")
     f = open(file, 'r')
     m = f.read()
     for x in m:
-        for y in MORSE_CODE:
-            if (x == y):
-                print(MORSE_CODE[y])
+        if (x != " "): # an English letter
+            for y in MORSE_CODE:
+                if (x == y):
+                    print(MORSE_CODE[y] + " ") # a space between two letters
+        else:
+            print("   ") # a space, so print 3 spaces to separate between words
+
     f.close()
 
+#EngToMorse()
+MorseToEng()
 
-EngToMorse()
