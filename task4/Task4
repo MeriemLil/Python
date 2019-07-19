@@ -1,0 +1,10 @@
+This task is the implementation of an image processing program that does some basic algorithms like RGB to Gray conversion, moving average
+filter and resizing of an image (which will include both upsampling and downsampling the image). The first part of the task is to impelemt
+it using single thread, the next part is with multithreaded and final one is multiprocess implementation. 
+What you will need to finish this task is:
+-Find a library that reads an image from disk and puts it into list.
+-Get to know the algorithms that you will implement, you can find information in the internet.
+-Implemet the serial code, which is a single process.
+-Learn about multithreading library in python, and create the code.
+-Learn about multiprocessing library in python and create the code.
+Time for this task is 2 days, due date Sunday night.
